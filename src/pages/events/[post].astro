@@ -1,16 +1,22 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
+import type { Concert, Program, Artist } from '../api/concerts.json'
+import { Icon } from 'astro-icon'
 
 export async function getStaticPaths() {
-  const data = await fetch('https://jsonplaceholder.typicode.com/posts').then((response) => response.json())
+  const data = await fetch('http://127.0.0.1:3000/api/concerts.json').then((response) => response.json())
 
-  return data.map((post) => {
+  return data.map((post: Concert) => {
     return {
       params: { post: post.title.replaceAll(' ', '-').toLowerCase() },
       props: { post },
     }
   })
+}
+
+interface Props {
+  post: Concert
 }
 
 const { post } = Astro.props
@@ -26,17 +32,74 @@ const { post } = Astro.props
       </Breadcrumbs>
     </div>
   </div>
-  <section class="my-12">
-    <div class="container">
-      <h1>{post.title}</h1><br />
-      <p>By userId: {post.userId}</p>
+  <div class="container flex flex-row">
+    <div>
+      <section class="mt-12">
+        <div>
+          <h1>{post.title}</h1>
+          <p class="mt-6">{post.location}</p>
+          <p>
+            {
+              (({ dayName, month, dayNumber, year, time }) => `${dayName}, ${month} ${dayNumber}, ${year} - ${time}`)(
+                post.concertDate
+              )
+            }
+          </p>
+        </div>
+      </section>
+      <section>
+        <div>
+          <a
+            class="button has-icon color-secondary w-fit"
+            href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=LGYJBWLM3XKUA"
+            target="_blank"
+          >
+            <Icon name="ic:baseline-favorite-border" />
+            Donate
+          </a>
+          <p class="text-base">{post.body}</p>
+        </div>
+      </section>
     </div>
-  </section>
-  <section class="my-12">
-    <div class="container">
-      <p class="text-2xl">{post.body}</p>
+    <div class="mt-12">
+      <img src={post.img.url} alt={post.img.alt} />
     </div>
-  </section>
+  </div>
+  <div class="container mb-6">
+    <h4>Program</h4>
+    {
+      post.program.map((programSection: Program) => (
+        <>
+          <p class="font-semibold">{programSection.composer}</p>
+          <div>
+            {programSection.pieces.map((piece: string) => (
+              <p>{piece}</p>
+            ))}
+          </div>
+        </>
+      ))
+    }
+  </div>
+  <div class="container mb-12">
+    <h4>Featured Artists</h4>
+    <div class="flex flex-row">
+      {
+        post.artists.map((artist) => (
+          <div>
+            <div>
+              <img src={artist.img?.url} alt={artist.img?.alt} />
+            </div>
+            <div>
+              <p>
+                {artist.name}
+                <i>{artist.instrument}</i>
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </DefaultLayout>
 
 <style lang="scss">

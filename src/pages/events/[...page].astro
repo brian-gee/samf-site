@@ -36,7 +36,7 @@ const { page } = Astro.props
           page.data.map((concert: responseData) => (
             <li>
               <Card
-                url={'/concerts/' + concert.title.replaceAll(' ', '-').toLowerCase()}
+                url={'/events/' + concert.title.replaceAll(' ', '-').toLowerCase()}
                 title={''} // dont need these props, yet when deleted, give default values. Can't change default values for some reason.
                 footer={''} //
               >
