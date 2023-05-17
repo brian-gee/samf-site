@@ -2,6 +2,7 @@
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import type { responseData } from '../api/data.json'
+import type { Artist } from '../api/concerts.json'
 
 export async function getStaticPaths({ paginate }) {
   const response = await fetch('http://127.0.0.1:3000/api/concerts.json')
@@ -36,10 +37,21 @@ const { page } = Astro.props
             <li>
               <Card
                 url={'/concerts/' + concert.title.replaceAll(' ', '-').toLowerCase()}
-                title={concert.title}
-                footer={'userId:' + concert.userId}
+                title={''} // dont need these props, yet when deleted, give default values. Can't change default values for some reason.
+                footer={''} //
               >
-                {concert.body}
+              <h2 class="text-center pb-5">{concert.title}</h2>
+                <div class="relative">
+                  <div>
+                    {concert.artists.map((artist: Artist) => (
+                      <h6>{artist.name}<i class="pl-2">{artist.instrument}</i></h6>
+                    ))}
+                  </div>
+                  <div class="border border-black flex flex-col justify-end items-center font-bold w-[57px] absolute bottom-0 right-0">
+                    <p>June</p>
+                    <p class="text-4xl font-semibold">19</p>
+                  </div>
+                </div>
               </Card>
             </li>
           ))
