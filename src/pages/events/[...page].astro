@@ -1,9 +1,10 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import { Card, Pagination } from 'accessible-astro-components'
+import type { responseData } from '../api/data.json'
 
 export async function getStaticPaths({ paginate }) {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const response = await fetch('http://127.0.0.1:3000/api/concerts.json')
   const data = await response.json()
 
   return paginate(data, { pageSize: 6 })
@@ -31,14 +32,14 @@ const { page } = Astro.props
       <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p>
       <ul class="my-3">
         {
-          page.data.map((post) => (
+          page.data.map((concert: responseData) => (
             <li>
               <Card
-                url={'/events/' + post.title.replaceAll(' ', '-').toLowerCase()}
-                title={post.title}
-                footer={'userId:' + post.userId}
+                url={'/concerts/' + concert.title.replaceAll(' ', '-').toLowerCase()}
+                title={concert.title}
+                footer={'userId:' + concert.userId}
               >
-                {post.body}
+                {concert.body}
               </Card>
             </li>
           ))
