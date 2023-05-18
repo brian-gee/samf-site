@@ -35,9 +35,9 @@ const { post } = Astro.props
   <div class="container flex flex-row">
     <div>
       <section class="mt-12">
-        <div>
+        <div class="flex flex-col gap-3">
           <h1>{post.title}</h1>
-          <p class="mt-6">{post.location}</p>
+          <p>{post.location}</p>
           <p>
             {
               (({ dayName, month, dayNumber, year, time }) => `${dayName}, ${month} ${dayNumber}, ${year} - ${time}`)(
@@ -50,50 +50,52 @@ const { post } = Astro.props
       <section>
         <div>
           <a
-            class="button has-icon color-secondary w-fit"
+            class="button has-icon color-secondary my-6 w-fit"
             href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=LGYJBWLM3XKUA"
             target="_blank"
           >
             <Icon name="ic:baseline-favorite-border" />
             Donate
           </a>
-          <p class="text-base">{post.body}</p>
+          <p class="pb-6 text-base">{post.body}</p>
         </div>
       </section>
     </div>
     <div class="mt-12">
-      <img src={post.img.url} alt={post.img.alt} />
+      <img src={post.img.url} alt={post.img.alt} class={post.img?.class?.join(' ')}/>
     </div>
-  </div>
-  <div class="container mb-6">
-    <h4>Program</h4>
-    {
-      post.program.map((programSection: Program) => (
-        <>
-          <p class="font-semibold">{programSection.composer}</p>
-          <div>
-            {programSection.pieces.map((piece: string) => (
-              <p>{piece}</p>
-            ))}
-          </div>
-        </>
-      ))
-    }
   </div>
   <div class="container mb-12">
     <h4>Featured Artists</h4>
-    <div class="flex flex-row">
+    <div class="flex flex-row gap-6">
       {
         post.artists.map((artist) => (
           <div>
             <div>
-              <img src={artist.img?.url} alt={artist.img?.alt} />
+              <img src={artist.img?.url} alt={artist.img?.alt} class={artist.img?.class?.join(' ')} />
             </div>
             <div>
               <p>
                 {artist.name}
                 <i>{artist.instrument}</i>
               </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="container mb-32">
+    <h4 class="mb-3 underline underline-offset-[4px]">Program</h4>
+    <div class="flex flex-row gap-7">
+      {
+        post.program.map((programSection: Program) => (
+          <div class="flex flex-col">
+            <p class="font-semibold">{programSection.composer}</p>
+            <div>
+              {programSection.pieces.map((piece: string) => (
+                <p>{piece}</p>
+              ))}
             </div>
           </div>
         ))

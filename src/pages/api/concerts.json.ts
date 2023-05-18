@@ -6,17 +6,14 @@ export interface Concert {
   location: string
   concertDate: ConcertDate
   body: string
-  img: string
+  img: Img
   program: Program[]
 }
 
 export interface Artist {
   name: string
   instrument: string | null
-  img: {
-    url: string | null;
-    alt: string | null;
-  }
+  img?: Img
 }
 
 export interface ConcertDate {
@@ -32,14 +29,28 @@ export interface Program {
   pieces: string[]
 }
 
+export interface Img {
+  url: string
+  alt: string
+  class: string[]
+}
+
 export async function get() {
   return {
     body: JSON.stringify([
       {
         title: 'Juneteenth Recognition Concert',
         artists: [
-          { name: 'The Ritz Chamber Players', instrument: null, img: { url: '', alt: 'The Ritz Chamber Players' } },
-          { name: 'Ann Marie McPhail', instrument: 'Soprano', img: { url: '', alt: 'Ann Marie McPhail, Soprano' } },
+          {
+            name: 'The Ritz Chamber Players',
+            instrument: null,
+            img: { url: '/event-assets/ritz.jpg', alt: 'The Ritz Chamber Players', class: [`w-[300px]`, 'h-[300px]'] },
+          },
+          {
+            name: 'Ann Marie McPhail',
+            instrument: 'Soprano',
+            img: { url: '/event-assets/ann-marie-mcphail.png', alt: 'Ann Marie McPhail, Soprano', class: [`w-[200px]`, 'h-[300px]'] },
+          },
         ],
         location: 'Location needed.',
         concertDate: {
@@ -51,8 +62,9 @@ export async function get() {
         },
         body: 'The Ritz Chamber Players will perform a concert in recognition of Juneteenth. The concert will feature music by African American composers.',
         img: {
-          url: '',
-          alt: 'The Ritz Chamber Players',
+          url: '/event-assets/juneteenth-placehold.png',
+          alt: 'Juneteenth Recognition Concert',
+          class: [`w-[500px]`, 'h-[250px]']
         },
         program: [
           {
