@@ -13,9 +13,20 @@ const { icon = 'mdi:rocket', title = 'Title', href = '/' } = Astro.props
     </p>
   </div>
   <div>
-    <a href={href} class="button border-2 border-custom-navy transition-colors hover:border-custom-navy hover:bg-custom-gray/5">Learn More</a>
+    <a href={href} class="inline-block py-3 px-4 font-bold text-center no-underline rounded-[3px] border-2 border-custom-navy transition-colors hover:border-custom-navy hover:bg-custom-gray/5">Learn More</a>
   </div>
 </div>
+
+<!-- display: inline-block;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: var(--neutral-900);
+  background-color: var(--primary-100);
+  border: 2px solid var(--red-custom);
+  border-radius: 3px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; -->
 
 <style lang="scss">
   @use '../assets/scss/base/breakpoint' as *;
