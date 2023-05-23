@@ -53,7 +53,7 @@ body {
 
   a:not(.button) {
     color: var(--action-color);
-    text-decoration: underline;
+    text-decoration: none;
 
     &:visited {
       color: var(--action-color);
@@ -61,7 +61,7 @@ body {
 
     &:hover,
     &:focus {
-      color: var(--action-color-state);
+      color: var(--navy-custom);
       text-decoration: none;
     }
   }

@@ -15,9 +15,9 @@ import EmailList from '../components/EmailList.astro'
 <DefaultLayout title="Home">
   <Hero />
   <ContentMedia imgSrc="/SAMFPerformanceNigel.jpeg" reverseImg={true}>
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-start gap-6">
       <div>
-        <h3 class="text-center uppercase lg:text-left">St. Augustine Music Festival</h3>
+        <h3 class="text-center uppercase lg:text-left text-custom-navy">St. Augustine Music Festival</h3>
       </div>
       <div>
         <p class="text-center text-base lg:text-left lg:text-lg">
@@ -30,14 +30,14 @@ import EmailList from '../components/EmailList.astro'
         </p>
       </div>
       <div class="mb-6 flex justify-center">
-        <a href="" class="button" aria-label="Learn More" title="Learn More"> Learn More</a>
+        <a href="" class="button border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red" aria-label="Learn More" title="Learn More"> Learn More</a>
       </div>
     </div>
   </ContentMedia>
   <ContentMedia imgSrc="/SAMFPerformanceCellos.jpeg" reverseImg={true}>
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6 items-start">
       <div>
-        <h2 class="text-center uppercase lg:text-left">Experience the benefits of SAMF</h2>
+        <h3 class="text-center uppercase lg:text-left text-custom-navy">Experience the benefits of SAMF</h3>
       </div>
       <div>
         <p class="text-center text-base lg:text-left lg:text-lg">
@@ -49,18 +49,18 @@ import EmailList from '../components/EmailList.astro'
         </p>
       </div>
       <div class="mb-6 flex justify-center">
-        <a href="" class="button" aria-label="Learn More" title="Learn More"> Learn More</a>
+        <a href="" class="button border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red" aria-label="Learn More" title="Learn More"> Learn More</a>
       </div>
     </div>
   </ContentMedia>
   <section class="mb-4 flex flex-col justify-center" id="content-media">
     <div class="container pt-10">
-      <div class="grid grid-cols-1 items-center lg:grid-cols-2">
+      <div class="grid grid-cols-1 items-center lg:grid-cols-2 border-2 p-6 bg-custom-gray/5 border-custom-navy">
         <div class="lg:max-w-[90%] lg:pr-4">
           <div class="flex flex-col items-center gap-10 sm:gap-16 lg:items-start">
             <div class="flex flex-col gap-2">
               <div>
-                <h2 class="text-center text-4xl uppercase lg:text-left">Spotlight Performer</h2>
+                <h2 class="text-center text-4xl uppercase lg:text-left text-custom-navy">Spotlight Performer</h2>
               </div>
               <div class="text-center lg:text-left">
                 <p class="text-2xl uppercase">Jorge A. PEÑA</p>
@@ -78,12 +78,12 @@ import EmailList from '../components/EmailList.astro'
               </p>
             </div>
           </div>
-          <div class="flex justify-center pt-6">
-            <a href="" class="button" aria-label="Learn More" title="Learn More"> Learn More</a>
+          <div class="flex justify-start pt-6">
+            <a href="" class="button border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red" aria-label="Learn More" title="Learn More"> Learn More</a>
           </div>
         </div>
         <div class="hidden items-start lg:flex">
-          <Media class="w-full p-0 rounded-lg mb-6" src={spotlightPerformer} />
+          <Media class="w-full p-0 rounded-lg mb-6 border-[10px] border-custom-gold" src={spotlightPerformer} />
         </div>
       </div>
     </div>

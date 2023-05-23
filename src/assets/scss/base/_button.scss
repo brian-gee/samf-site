@@ -10,19 +10,14 @@
   text-align: center;
   color: var(--neutral-900);
   background-color: var(--primary-100);
-  border: 3px solid var(--primary-100);
+  border: 2px solid var(--red-custom);
   border-radius: 3px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
   &:hover,
   &:focus {
-    text-decoration: underline;
-    background-color: var(--primary-200);
-    border-color: var(--primary-200);
-  }
-
-  &:visited {
-    color: var(--neutral-900);
+    background-color: var(--red-custom);
+    border-color: var(--red-custom);
   }
 
   &.color-secondary {
@@ -42,7 +37,7 @@
 
     &:hover,
     &:focus {
-      background-color: var(--neutral-400);
+      background-color: var(--neutral-500);
       border-color: var(--neutral-400);
     }
   }

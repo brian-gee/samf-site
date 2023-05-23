@@ -11,19 +11,19 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
         <h1 class="text-center text-6xl lg:text-8xl">
           <slot><span class="text-gradient">Celebrate</span></slot>
         </h1>
-        <h3 class="text-center text-5xl">Classical Music in St. Augustine</h3>
-        <p class="text-2xl font-semibold">June 28 - July 3, 2023</p>
+        <h3 class="text-center text-5xl text-custom-navy dark:text-neutral-200">Classical Music in St. Augustine</h3>
+        <p class="text-2xl font-semibold text-custom-navy">June 28 - July 3, 2023</p>
         <div class="mt-6 flex flex-col gap-9 sm:flex-row">
-          <a class="button has-icon color-secondary" href="/contact">
+          <a class="button has-icon bg-white border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red" href="/contact">
             <Icon name="ic:baseline-phonelink-ring" />
             Contact Us
           </a>
-          <a class="button has-icon color-secondary" href="/events">
+          <a class="button has-icon bg-white border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red" href="/events">
             <Icon name="ic:twotone-calendar-month" />
             Events
           </a>
           <a
-            class="button has-icon color-secondary"
+            class="button has-icon bg-white border-2 border-custom-red transition-colors hover:bg-custom-red hover:text-white hover:border-custom-red"
             href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=LGYJBWLM3XKUA"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,7 +39,7 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
 
 <style lang="scss">
   .text-gradient {
-    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-500));
+    background: linear-gradient(315deg, var(--navy-200), var(--navy-800));
     background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

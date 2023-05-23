@@ -39,6 +39,13 @@ module.exports = {
         dark: {
           100: 'hsl(223, 58%, 27%)',
         },
+        'custom-red': 'hsl(352, 100%, 39%)',
+        'custom-gold': 'hsl(45, 34%, 50%)',
+        'custom-gray': 'hsl(21, 10%, 42%)',
+        'custom-teal': 'hsl(188, 100%, 27%)',
+        'custom-navy': 'hsl(233, 100%, 20%)',
+        'custom-white': 'hsl(0, 0%, 100%)',
+        'custom-dark-blue': 'hsl(220, 60%, 5%)',
       },
     },
   },
