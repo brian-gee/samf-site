@@ -16,7 +16,6 @@
 
   &:hover,
   &:focus {
-    text-decoration: underline;
     background-color: var(--primary-200);
     border-color: var(--primary-200);
   }
@@ -42,7 +41,7 @@
 
     &:hover,
     &:focus {
-      background-color: var(--neutral-400);
+      background-color: var(--neutral-500);
       border-color: var(--neutral-400);
     }
   }
